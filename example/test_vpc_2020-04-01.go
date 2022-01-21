@@ -9,12 +9,20 @@ import (
 )
 
 func main() {
-	ak := "ak"
-	sk := "sk"
+	ak := "AK"
+	sk := "SK"
 	var region = "cn-beijing"
 	svc := vpc.New(session.SdkNew(ak, sk), &volcstack.Config{Region: &region}, &volcstackutil.UrlInfo{
 		UseSSL: false,
 	})
+
+	//create := &vpc.CreateVpcInput{
+	//	CidrBlock: volcstack.String("172.20.0.0/16"),
+	//	VpcName: volcstack.String("sdk-test"),
+	//	DnsServers: volcstack.StringSlice([]string{"192.168.1.1"}),
+	//}
+	//
+	//output ,_ := svc.CreateVpc(create)
 
 	param := make(map[string]interface{})
 	param["CidrBlock"] = "172.20.0.0/16"
