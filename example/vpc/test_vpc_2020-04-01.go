@@ -16,19 +16,20 @@ func main() {
 		UseSSL: false,
 	})
 
-	//create := &vpc.CreateVpcInput{
-	//	CidrBlock: volcstack.String("172.20.0.0/16"),
-	//	VpcName: volcstack.String("sdk-test"),
-	//	DnsServers: volcstack.StringSlice([]string{"192.168.1.1"}),
-	//}
-	//
-	//output ,_ := svc.CreateVpc(create)
+	query := &vpc.DescribeVpcsInput{
+		VpcIds: volcstack.StringSlice([]string{"vpc-rrrumxgi5khsv0x58kambxl"}),
+	}
 
-	param := make(map[string]interface{})
-	param["CidrBlock"] = "172.20.0.0/16"
-	resp, err := svc.CreateVpcCommon(&param)
+	resp, err := svc.DescribeVpcs(query)
 	if err != nil {
 		panic(err)
 	}
 	fmt.Printf("Response is %v ", *resp)
+	//param := make(map[string]interface{})
+	//param["CidrBlock"] = "172.20.0.0/16"
+	//resp, err := svc.CreateVpcCommon(&param)
+	//if err != nil {
+	//	panic(err)
+	//}
+	//fmt.Printf("Response is %v ", *resp)
 }
