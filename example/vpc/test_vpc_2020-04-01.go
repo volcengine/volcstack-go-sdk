@@ -9,8 +9,8 @@ import (
 )
 
 func main() {
-	ak := "AKLTODI3MjQzMTk1NmZkNDgyMmE3YWRhMWUyOWQwOWViOWI"
-	sk := "T1RWa09EUXhPVE14WVRZeE5EaGtObUZsTkRreE1XTTNOekV3TVRNeFltWQ=="
+	ak := "AK"
+	sk := "SK"
 	var region = "cn-beijing"
 	svc := ecs.New(session.SdkNew(ak, sk), &volcstack.Config{Region: &region}, &volcstackutil.UrlInfo{
 		UseSSL: false,
