@@ -9,12 +9,17 @@ import (
 )
 
 func main() {
-	ak := "AK"
-	sk := "SK"
+	ak := "ak"
+	sk := "ak"
 	var region = "cn-beijing"
-	svc := ecs.New(session.SdkNew(ak, sk), &volcstack.Config{Region: &region}, &volcstackutil.UrlInfo{
-		UseSSL: false,
-	})
+
+	config := volcstack.NewConfig().
+		WithRegion(region).
+		WithAkSk(ak, sk).
+		WithDisableSSL(true).
+		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+	sess, _ := session.NewSession(config)
+	svc := ecs.New(sess)
 
 	query := &ecs.DescribeInstancesInput{}
 
