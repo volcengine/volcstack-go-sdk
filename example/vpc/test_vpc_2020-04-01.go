@@ -17,6 +17,7 @@ func main() {
 		WithRegion(region).
 		WithAkSk(ak, sk).
 		WithDisableSSL(true).
+		WithLogLevel(volcstack.LogDebugWithHTTPBody).
 		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := ecs.New(sess)
