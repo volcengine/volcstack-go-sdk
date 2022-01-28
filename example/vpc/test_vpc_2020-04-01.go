@@ -13,9 +13,16 @@ func main() {
 	sk := "ak"
 	var region = "cn-beijing"
 
+	//if use env Credentials
+	//please
+	//export VOLCSTACK_ACCESS_KEY=AK
+	//export VOLCSTACK_SECRET_KEY=SK
+	// and WithCredentials(credentials.NewEnvCredentials())
+
 	config := volcstack.NewConfig().
 		WithRegion(region).
 		WithAkSk(ak, sk).
+		//WithCredentials(credentials.NewEnvCredentials()).
 		WithDisableSSL(true).
 		WithLogLevel(volcstack.LogDebugWithHTTPBody).
 		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
