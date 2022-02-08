@@ -29,9 +29,17 @@ func main() {
 	sess, _ := session.NewSession(config)
 	svc := ecs.New(sess)
 
-	query := &ecs.DescribeInstancesInput{}
+	query := &ecs.RunInstancesInput{}
 
-	resp, err := svc.DescribeInstances(query)
+	query.Volumes = []*ecs.VolumeForRunInstancesInput{
+		{
+			Size:               volcstack.Int64(32),
+			DeleteWithInstance: volcstack.String("true"),
+		},
+	}
+	query.CpuOptions = &ecs.CpuOptionsForRunInstancesInput{Numa: volcstack.Int64(111)}
+
+	resp, err := svc.RunInstances(query)
 	if err != nil {
 		panic(err)
 	}
