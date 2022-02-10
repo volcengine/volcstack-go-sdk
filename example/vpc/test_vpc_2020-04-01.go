@@ -33,11 +33,11 @@ func main() {
 
 	query.Volumes = []*ecs.VolumeForRunInstancesInput{
 		{
-			Size:               volcstack.Int64(32),
+			Size:               volcstack.Int32(32),
 			DeleteWithInstance: volcstack.String("true"),
 		},
 	}
-	query.CpuOptions = &ecs.CpuOptionsForRunInstancesInput{Numa: volcstack.Int64(111)}
+	query.CpuOptions = &ecs.CpuOptionsForRunInstancesInput{Numa: volcstack.Int32(111)}
 
 	resp, err := svc.RunInstances(query)
 	if err != nil {
