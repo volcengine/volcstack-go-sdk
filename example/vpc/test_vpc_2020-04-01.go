@@ -1,11 +1,12 @@
 package main
 
 import (
-	"code.byted.org/iaasng/volcstack-go-sdk/service/ecs"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/session"
-	"code.byted.org/iaasng/volcstack-go-sdk/volcstack/volcstackutil"
 	"fmt"
+
+	"github.com/volcengine/volcstack-go-sdk/service/ecs"
+	"github.com/volcengine/volcstack-go-sdk/volcstack"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
+	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 func main() {
