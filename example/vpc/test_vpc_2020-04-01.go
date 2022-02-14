@@ -38,7 +38,11 @@ func main() {
 			DeleteWithInstance: volcstack.String("true"),
 		},
 	}
-	query.CpuOptions = &ecs.CpuOptionsForRunInstancesInput{Numa: volcstack.Int32(111)}
+	query.NetworkInterfaces = []*ecs.NetworkInterfaceForRunInstancesInput{
+		{
+			SecurityGroupIds: volcstack.StringSlice([]string{"1111", "2222"}),
+		},
+	}
 
 	resp, err := svc.RunInstances(query)
 	if err != nil {
