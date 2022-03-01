@@ -25,7 +25,7 @@ func main() {
 		WithAkSk(ak, sk).
 		//WithCredentials(credentials.NewEnvCredentials()).
 		WithDisableSSL(true).
-		WithLogLevel(volcstack.LogDebugWithHTTPBody).
+		//WithLogLevel(volcstack.LogDebugWithHTTPBody).
 		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := ecs.New(sess)
