@@ -6,7 +6,6 @@ import (
 	"github.com/volcengine/volcstack-go-sdk/service/vpc"
 	"github.com/volcengine/volcstack-go-sdk/volcstack"
 	"github.com/volcengine/volcstack-go-sdk/volcstack/session"
-	"github.com/volcengine/volcstack-go-sdk/volcstack/volcstackutil"
 )
 
 func main() {
@@ -23,9 +22,9 @@ func main() {
 		WithRegion(region).
 		WithAkSk(ak, sk).
 		//WithCredentials(credentials.NewEnvCredentials()).
-		WithDisableSSL(true).
-		//WithLogLevel(volcstack.LogDebugWithHTTPBody).
-		WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
+		WithDisableSSL(true)
+	//WithLogLevel(volcstack.LogDebugWithHTTPBody).
+	//WithEndpoint(volcstackutil.NewEndpoint().GetEndpoint())
 	sess, _ := session.NewSession(config)
 	svc := vpc.New(sess)
 
